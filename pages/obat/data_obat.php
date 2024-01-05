@@ -22,12 +22,12 @@
             <table id="example1" class="table table-bordered table-hover">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>ID</th>
-                  <th>NAMA OBAT</th>
-                  <th>KEMASAN</th>
-                  <th>HARGA</th>
-                  <th>AKSI</th>
+                  <th>No</th>
+                  <th>Id</th>
+                  <th>Nama Obat</th>
+                  <th>Kemasan</th>
+                  <th>Harga</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -46,8 +46,8 @@
                     <td><?php echo $row['kemasan']; ?></td>
                     <td><?php echo $row['harga']; ?></td>
                     <td>
-                      <a href="index.php?page=ubah_obat&id=<?= $row['id']; ?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
-                      <a href="../pages/obat/hapus_obat.php?id=<?= $row['id']; ?>" class="btn btn-danger" role="button" title="Hapus Data"><i class="glyphicon glyphicon-trash"></i></a>
+                      <a href="index.php?page=ubah_obat&id=<?= $row['id']; ?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit">Edit</i></a>
+                      <a href="../pages/obat/hapus_obat.php?id=<?= $row['id']; ?>" class="btn btn-danger" role="button" title="Hapus Data"><i class="glyphicon glyphicon-trash">Hapus</i></a>
                     </td>
                   </tr>
 
@@ -56,12 +56,12 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <th>#</th>
-                  <th>ID</th>
-                  <th>NAMA OBAT</th>
-                  <th>KEMASAN</th>
-                  <th>HARGA</th>
-                  <th>AKSI</th>
+                  <th>No</th>
+                  <th>Id</th>
+                  <th>Nama Obat</th>
+                  <th>Kemasan</th>
+                  <th>Harga</th>
+                  <th>Aksi</th>
                 </tr>
               </tfoot>
             </table>

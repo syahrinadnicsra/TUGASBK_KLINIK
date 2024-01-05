@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Poliklinik | Daftar Poli</title>
+    <title>Poliklinik | Riwayat Daftar Poli</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -63,7 +63,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="app/dist/img/logoudinusbaru.jpg" alt="Logo Udinus" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="app/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Poliklinik</span>
             </a>
 
@@ -101,7 +101,7 @@
                             <a href="../widgets.html" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Poli
+                                    Widgets
                                 </p>
                             </a>
                         </li>
@@ -120,12 +120,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Daftar Poli</h1>
+                            <h1>Riwayat Daftar Poli</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Daftar Poli</li>
+                                <li class="breadcrumb-item active">Riwayat Daftar Poli</li>
                             </ol>
                         </div>
                     </div>
@@ -135,65 +135,78 @@
             <!-- Main content -->
             <section class="content">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">Daftar Poli</h3>
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Riwayat Daftar Poli</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                <div class="card box box-primary">
+                                    <div class="card-header box-header"></div>
+                                    <div class="card-body box-body table-responsive">
+                                        <table id="example1" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Poli</th>
+                                                    <th>Dokter</th>
+                                                    <th>Hari</th>
+                                                    <th>Mulai</th>
+                                                    <th>Selesai</th>
+                                                    <th>Antrian</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <?php
+                                                    require_once __DIR__ . "/conf/conn.php";
+                                                    $no = 0;
+                                                    $query = mysqli_query($conn, "SELECT * FROM daftar_poli ORDER BY id DESC");
+                                                    //echo $query;
+                                                    while ($row = mysqli_fetch_array($query)) {
+                                                    ?>
+                                                <tr>
+                                                    <td><?php echo $no = $no + 1; ?></td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td> </td>
+                                                    <td><?php echo $row['id']; ?></td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-success" role="button" title="Detail Data"><i class="glyphicon glyphicon-edit">Detail</i></a>
+                                                    </td>
+                                                </tr>
 
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
+                                            <?php } ?>
+                                            <!--<td>1</td>
+                                                    <td>Poli Gigi</td>
+                                                    <td>Drg.Upin</td>
+                                                    <td>Kamis</td>
+                                                    <td>08:30:00</td>
+                                                    <td>10:20:00</td>
+                                                    <td>001</td>-->
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                            <form method="POST" action="conf/auth_daftarpoli.php" enctype="multipart/form-data"> <!--codingan database ada pada auth_daftarpoli.php-->
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="no_antrian">No Rekam Medis</label>
-                                        <input type="int" id="no_rm" name="no_rm" class="form-control" value="202312-xxx">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="id_poli">Pilih Poli</label>
-                                        <select id="id_poli" name="id_poli" class="form-control custom-select">
-                                            <option selected disabled>Open this select menu</option>
-                                            <option value="gigi">Poli Umum</option>
-                                            <option value="umum">Poli Gigi</option>
-                                            <option value="tht">Poli THT</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="id_jadwal">Pilih Jadwal</label>
-                                        <select id="id_poli" name="id_jadwal" class="form-control custom-select">
-                                            <option selected disabled>Open this select menu</option>
-                                            <option value="pagi">Pagi</option>
-                                            <option value="siang">Siang</option>
-                                            <option value="sore">Sore</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="keluhan">Keluhan</label>
-                                        <textarea id="keluhan" name="keluhan" class="form-control" rows="4"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="daftarpoli" class="btn btn-primary">Daftar</a>
-                                    </div>
-                                </div>
-                                <!-- /.card-body -->
-                            </form>
-                            <br>
                         </div>
-                        <!-- /.card -->
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card card-secondary">
-                        </div>
-                        <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
                 </div>
+                <div class="col-md-6">
+                    <div class="card card-secondary">
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
         </div>
-        </section>
-        <!-- /.content -->
+    </div>
+    </section>
+    <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">

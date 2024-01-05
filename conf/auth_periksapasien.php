@@ -1,12 +1,12 @@
 <?php
 include __DIR__ . "/conn.php";
 if ($_POST) {
-    $no_rm = $_POST['no_rm'];
-    $id_poli = $_POST['id_poli'];
-    $id_jadwal = $_POST['id_jadwal'];
-    $keluhan = $_POST['keluhan'];
-    $query = ("INSERT INTO daftar_poli(no_rm,id_poli,id_jadwal,keluhan) 
-           VALUES ('" . $no_rm . "','" . $id_poli . "','" . $id_jadwal . "','" . $keluhan . "')");
+    $nama_pasien = $_POST['nama_pasien'];
+    $tgl_periksa = $_POST['tgl_periksa'];
+    $obat = $_POST['obat'];
+    $total_harga = $_POST['total_harga'];
+    $query = ("INSERT INTO periksapasien(nama_pasien,tgl_periksa,obat,total_harga) 
+           VALUES ('" . $nama_pasien . "','" . $tgl_periksa . "','" . $obat . "','" . $total_harga . "')");
     //echo $no_rm;
     if (!mysqli_query($conn, $query)) {
         die(mysql_error);

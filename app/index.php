@@ -13,6 +13,7 @@ session_start();
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <script src="https://kit.fontawesome.com/79ba4adbee.js" crossorigin="anonymous"></script>
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
@@ -64,7 +65,7 @@ session_start();
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="dist/img/logoudinusbaru.jpg" alt="Logo Udinus" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Poliklinik</span>
       </a>
 
@@ -99,7 +100,7 @@ session_start();
                with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a href="?page=data_obat" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon fa-solid fa-tablets"></i>
                 <p>
                   Data Obat
                 </p>
@@ -107,7 +108,7 @@ session_start();
             </li>
             <li class="nav-item">
               <a href="pages/widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon fa-solid fa-hospital-user"></i>
                 <p>
                   Data Pasien
                 </p>
@@ -115,9 +116,41 @@ session_start();
             </li>
             <li class="nav-item">
               <a href="pages/widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon fa-solid fa-user-doctor"></i>
                 <p>
                   Data Dokter
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pages/widgets.html" class="nav-link">
+                <i class="nav-icon fa-solid fa-clipboard-list"></i>
+                <p>
+                  Jadwal Periksa
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pages/widgets.html" class="nav-link">
+                <i class="nav-icon fa-solid fa-stethoscope"></i>
+                <p>
+                  Memeriksa Pasien
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pages/widgets.html" class="nav-link">
+                <i class="nav-icon fa-solid fa-notes-medical"></i>
+                <p>
+                  Riwayat Pasien
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pages/widgets.html" class="nav-link">
+                <i class="nav-icon fa-solid fa-user"></i>
+                <p>
+                  Profil
                 </p>
               </a>
             </li>
@@ -129,23 +162,27 @@ session_start();
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
+    <!-- Data Obat-->
     <div class="cart">
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-      if (isset($_GET['page'])) {
-        if ($_GET['page'] == 'tambah_obat') {
-          include __DIR__."/../pages/obat/tambah_obat.php";
-        } elseif ($_GET['page'] == 'ubah_obat') {
-          include __DIR__."/../pages/obat/ubah_obat.php";
+      <?php
+      if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        if (isset($_GET['page'])) {
+          if ($_GET['page'] == 'tambah_obat') {
+            include __DIR__ . "/../pages/obat/tambah_obat.php";
+          } elseif ($_GET['page'] == 'ubah_obat') {
+            include __DIR__ . "/../pages/obat/ubah_obat.php";
+          } else {
+            include __DIR__ . "/../pages/obat/data_obat.php";
+          }
         } else {
-          include __DIR__."/../pages/obat/data_obat.php";
+          include __DIR__ . "/../pages/home.php";  //home.php file untuk halaman dashboard
         }
-      } else {
-        include __DIR__."/../pages/obat/data_obat.php";
       }
-    }
-    ?>
+      ?>
     </div>
+    <!-- /Data Obat-->
+
+    <!--Data Pasien-->
 
     <!-- /.content-wrapper -->
     <footer class="main-footer">
